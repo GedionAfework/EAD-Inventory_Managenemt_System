@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-main">
+        <ul>
+          <li data-tooltip="Dashboard">
+            <a href="#">Dashboard</a>
+          </li>
+          <li data-tooltip="Items"><a href="index.html">Items</a></li>
+          <li data-tooltip="Search"><a href="search.html">Search</a></li>
+          <li data-tooltip="Settings"><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <h3>Dashboard</h3>
+
+    <div class="summary">
+      <div class="card">Items: <span id="items-count">0</span></div>
+      <div class="card">
+        Total Quantity: <span id="total-quantity">0 units</span>
+      </div>
+      <div class="card">
+        Total Value: <span id="total-value">ETB 0.00</span>
+      </div>
+    </div>
+
+    <div class="activity">
+      <button class="hamburger-menu">☰ Activity</button>
+      <div class="activity-menu">
+        <ul>
+          <li><input type="checkbox" /> All Activity</li>
+          <li><input type="checkbox" /> Edited</li>
+          <li><input type="checkbox" /> New</li>
+          <li><input type="checkbox" /> Deleted</li>
+          <li><input type="checkbox" /> Restocked</li>
+          <li><input type="checkbox" /> Changed Quantity</li>
+        </ul>
+        <button class="apply-btn">Apply</button>
+        <button class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </body>
+</html>
