@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hamburger.addEventListener("click", function () {
     layoutOptions.classList.toggle("show");
+    layoutOptions.style.position = "absolute";
+    layoutOptions.style.top = "100%";
+    layoutOptions.style.left = "0";
   });
 
   const addItemBtn = document.querySelector(".add-btn.bottom-btn");
@@ -49,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const newItem = document.createElement("div");
       newItem.classList.add("added-item");
       newItem.innerHTML = `
-                  <p>Name: ${itemName}</p>
-                  <p>Number of Items: ${itemNumber}</p>
-                  <p>Price: ETB ${itemPrice}</p>
-              `;
+                    <p>Name: ${itemName}</p>
+                    <p>Number of Items: ${itemNumber}</p>
+                    <p>Price: ETB ${itemPrice}</p>
+                `;
 
       itemsContainer.appendChild(newItem);
 
