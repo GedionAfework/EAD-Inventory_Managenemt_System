@@ -131,9 +131,9 @@ body {
     background-color: #333;
     color: white;
     border-radius: 5px;
-  }
+}
 
-  .layout-options {
+.layout-options {
     display: none;
     position: absolute;
     top: 100%;
@@ -142,10 +142,11 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px;
-  }
-  .layout-options.show {
+}
+
+.layout-options.show {
     display: block;
-  }
+}
 
 .layout-options ul {
     list-style: none;
@@ -190,7 +191,8 @@ body {
     align-items: center;
 }
 
-.add-item-modal {
+.add-item-modal,
+.item-details-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -204,13 +206,23 @@ body {
     backdrop-filter: blur(5px);
 }
 
+#item-details-modal .modal-content {
+    max-width: 600px;
+}
+
+#item-details-modal .item-details-image {
+    max-width: 200px;
+    height: auto;
+    margin-top: 10px;
+}
+
 .modal-content {
     background-color: white;
     padding: 20px;
-    border-radius: 5px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
 }
 
 .close-btn {
@@ -243,7 +255,8 @@ input {
     justify-content: space-between;
 }
 
-.add-btn, .cancel-btn {
+.add-btn,
+.cancel-btn {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -299,17 +312,23 @@ input {
     width: 100%;
 }
 
+.added-item img.item-image {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+}
+
 .grid-layout {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
-  }
+}
 
 .list-layout {
     text-align: left;
     display: block;
-  }
+}
 
 .list-layout .added-item {
     width: 100%;
@@ -326,18 +345,67 @@ input {
 }
 
 .added-item {
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin: 5px 0;
-  }
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 .added-item p {
     margin: 5px 0;
 }
 
+.added-item img {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.added-item .actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease-in-out;
+}
+
+.edit-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
 .added-item p.name {
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.added-item .message {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #555;
+    font-weight: normal;
 }
 
 .add-btn.bottom-btn {
@@ -372,3 +440,230 @@ input {
     margin-bottom: 10px;
 }
 
+.account-setting {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 30px;
+}
+
+.settings-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.change-password-title {
+    font-size: 22px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    padding: 12px;
+    background-color: #dd2a3b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #b71c1c;
+}
+
+.search-container {
+    align-items: center;
+    padding: 20px;
+    width: 100%; 
+}
+
+.search-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block; 
+}
+
+.search-input {
+    position: absolute;
+    left:35%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 70%; 
+    max-width: 400px;
+    margin-right: 10px; 
+    display: inline-block; 
+}
+
+.search-btn {
+    position: absolute;
+    left:61%;
+    padding: 10px 20px;
+    background-color: #dd2a3b;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; 
+}
+
+.search-btn:hover {
+    background-color: #b71c1c;
+}
+
+.search-results {
+    margin-top: 30px;
+}
+
+.login-title {
+    position: absolute;
+    left: 40%;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.login-form {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+
+.login-form-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+.login-form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-btn {
+    padding: 12px;
+    background-color: #dd2a3b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #b71c1c;
+}
+
+.login-signup-link {
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+.login-signup-link-a {
+    color: #dd2a3b;
+    text-decoration: none;
+}
+
+.login-signup-link-a:hover {
+    text-decoration: underline;
+}
+.signup-title {
+    position: absolute;
+    left: 40%;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.signup-form {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+
+.signup-form-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+.signup-form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signup-btn {
+    padding: 12px;
+    background-color: #dd2a3b;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.signup-btn:hover {
+    background-color: #b71c1c;
+}
+
+.signup-login-link {
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+}
+
+.signup-login-link-a {
+    color: #dd2a3b;
+    text-decoration: none;
+}
+
+.signup-login-link-a:hover {
+    text-decoration: underline;
+}
