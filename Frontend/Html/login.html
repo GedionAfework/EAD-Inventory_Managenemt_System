@@ -7,16 +7,29 @@
     <link rel="stylesheet" href="../Css/styles.css" />
   </head>
   <body>
-    <h3>Login</h3>
-    <form>
-      <label>Email:</label>
-      <input type="email" placeholder="Enter your email" />
+    <h3 class="login-title">Login</h3>
+    <form class="login-form">
+      <label for="email" class="login-form-label">Email:</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        class="login-form-input"
+      />
 
-      <label>Password:</label>
-      <input type="password" placeholder="Enter your password" />
+      <label for="password" class="login-form-label">Password:</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        class="login-form-input"
+      />
 
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+      <button type="submit" class="login-btn">Login</button>
+      <p class="login-signup-link">
+        Don't have an account?
+        <a href="signup.html" class="login-signup-link-a">Sign up</a>
+      </p>
     </form>
     <script src="../Js/scripts.js"></script>
   </body>

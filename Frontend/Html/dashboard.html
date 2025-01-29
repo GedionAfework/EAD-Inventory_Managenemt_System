@@ -9,44 +9,67 @@
   <body>
     <nav class="navbar">
       <div class="nav-main">
-        <ul>
-          <li data-tooltip="Dashboard">
-            <a href="#">Dashboard</a>
+        <ul class="nav-list">
+          <li class="nav-item" data-tooltip="Dashboard">
+            <a href="#" class="nav-link">Dashboard</a>
           </li>
-          <li data-tooltip="Items"><a href="index.html">Items</a></li>
-          <li data-tooltip="Search"><a href="search.html">Search</a></li>
-          <li data-tooltip="Settings"><a href="settings.html">Settings</a></li>
+          <li class="nav-item" data-tooltip="Items">
+            <a href="index.html" class="nav-link">Items</a>
+          </li>
+          <li class="nav-item" data-tooltip="Search">
+            <a href="search.html" class="nav-link">Search</a>
+          </li>
+          <li class="nav-item" data-tooltip="Settings">
+            <a href="settings.html" class="nav-link">Settings</a>
+          </li>
         </ul>
       </div>
     </nav>
 
-    <h3>Dashboard</h3>
+    <h3 class="dashboard-title">Dashboard</h3>
 
-    <div class="summary">
-      <div class="card">Items: <span id="items-count">0</span></div>
-      <div class="card">
-        Total Quantity: <span id="total-quantity">0 units</span>
+    <div class="summary-container">
+      <div class="summary-card">
+        Items: <span id="items-count" class="summary-value">0</span>
       </div>
-      <div class="card">
-        Total Value: <span id="total-value">ETB 0.00</span>
+      <div class="summary-card">
+        Total Quantity:
+        <span id="total-quantity" class="summary-value">0 units</span>
+      </div>
+      <div class="summary-card">
+        Total Value:
+        <span id="total-value" class="summary-value">ETB 0.00</span>
       </div>
     </div>
 
-    <div class="activity">
-      <button class="hamburger-menu">☰ Activity</button>
+    <div class="activity-container">
+      <button class="hamburger-menu-btn">☰ Activity</button>
       <div class="activity-menu">
-        <ul>
-          <li><input type="checkbox" /> All Activity</li>
-          <li><input type="checkbox" /> Edited</li>
-          <li><input type="checkbox" /> New</li>
-          <li><input type="checkbox" /> Deleted</li>
-          <li><input type="checkbox" /> Restocked</li>
-          <li><input type="checkbox" /> Changed Quantity</li>
+        <ul class="activity-list">
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> All Activity
+          </li>
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> Edited
+          </li>
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> New
+          </li>
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> Deleted
+          </li>
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> Restocked
+          </li>
+          <li class="activity-item">
+            <input type="checkbox" class="activity-checkbox" /> Changed Quantity
+          </li>
         </ul>
-        <button class="apply-btn">Apply</button>
-        <button class="cancel-btn">Cancel</button>
+        <button class="apply-button">Apply</button>
+        <button class="cancel-button">Cancel</button>
       </div>
     </div>
+
     <script src="../Js/scripts.js"></script>
   </body>
 </html>
