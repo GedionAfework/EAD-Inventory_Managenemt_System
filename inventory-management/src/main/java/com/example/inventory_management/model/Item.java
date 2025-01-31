@@ -23,4 +23,5 @@ public class Item {
     @ManyToOne
     @JoinColumn(name = "created_by")
     private User createdBy;
+    private String imageUrl; // New field for image URL or path1
 }

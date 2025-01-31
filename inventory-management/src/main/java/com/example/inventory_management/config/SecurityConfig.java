@@ -20,13 +20,16 @@ public class SecurityConfig {
                         // Allow public access to auth endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         // Allow public access to the /api/items endpoint for testing
-                        .requestMatchers("/api/items").permitAll() // <-- Add this line
+                        .requestMatchers("/api/items").permitAll()
+                        // Allow access to the login page
+                        .requestMatchers("/login").permitAll()
                         // Protect all other endpoints
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login") // Specify a custom login page
-                        .defaultSuccessUrl("/frontend/Html/dashboard.html", true) // Redirect after successful login
+                        .defaultSuccessUrl("/frontend/Html/index.html", true) // Redirect after successful login
+                        .failureUrl("/login?error=true") // Redirect on login failure
                         .permitAll()
                 )
                 .logout(logout -> logout

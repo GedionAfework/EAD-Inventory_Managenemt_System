@@ -4,7 +4,10 @@ import com.example.inventory_management.model.Item;
 import com.example.inventory_management.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -12,43 +15,20 @@ import java.util.List;
 public class ItemService {
     private final ItemRepository itemRepository;
 
-    /**
-     * Create a new item.
-     * @param item The item to be created.
-     * @return The created item.
-     * @throws IllegalArgumentException if item fields are invalid.
-     */
     public Item createItem(Item item) {
         validateItem(item); // Validate item fields
         return itemRepository.save(item);
     }
 
-    /**
-     * Retrieve all items.
-     * @return A list of items.
-     */
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
-    /**
-     * Retrieve an item by its ID.
-     * @param id The id of the item.
-     * @return The item if found.
-     * @throws RuntimeException if the item is not found.
-     */
     public Item getItemById(Long id) {
         return itemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
     }
 
-    /**
-     * Update an existing item.
-     * @param id The id of the item to update.
-     * @param item The item data to update.
-     * @return The updated item.
-     * @throws RuntimeException if the item is not found.
-     */
     public Item updateItem(Long id, Item item) {
         validateItem(item); // Validate item fields
         Item existingItem = getItemById(id);
@@ -59,19 +39,10 @@ public class ItemService {
         return itemRepository.save(existingItem);
     }
 
-    /**
-     * Delete an item by its ID.
-     * @param id The id of the item to delete.
-     */
     public void deleteItem(Long id) {
         itemRepository.deleteById(id);
     }
 
-    /**
-     * Validate item fields.
-     * @param item The item to validate.
-     * @throws IllegalArgumentException if any field is invalid.
-     */
     private void validateItem(Item item) {
         if (item.getName() == null || item.getName().isEmpty()) {
             throw new IllegalArgumentException("Item name cannot be null or empty");
@@ -85,5 +56,19 @@ public class ItemService {
         if (item.getPrice() == null || item.getPrice() < 0) {
             throw new IllegalArgumentException("Item price must be a non-negative value");
         }
+    }
+
+    public String uploadImage(MultipartFile image) throws IOException {
+        String uploadDir = "D://Desktop//inventory-management//src//main//resources//uploads"; // Specify a valid upload directory
+        File directory = new File(uploadDir);
+        if (!directory.exists()) {
+            directory.mkdirs(); // Create directory if it doesn't exist
+        }
+
+        String imageName = System.currentTimeMillis() + "-" + image.getOriginalFilename();
+        File imageFile = new File(directory, imageName);
+        image.transferTo(imageFile); // Save the image
+
+        return "/uploads/" + imageName; // Return URL for accessing the image
     }
 }
