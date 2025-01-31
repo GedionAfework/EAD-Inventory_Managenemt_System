@@ -13,22 +13,22 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity; consider enabling in production
                 .authorizeHttpRequests(auth -> auth
                         // Allow access to static files under /frontend/** without authentication
                         .requestMatchers("/frontend/**").permitAll()
                         // Allow public access to auth endpoints
                         .requestMatchers("/api/auth/**").permitAll()
                         // Allow public access to the /api/items endpoint for testing
-                        .requestMatchers("/api/items").permitAll()
+                        .requestMatchers("/api/items/**").permitAll() // Ensure this matches specific methods
                         // Allow access to the login page
                         .requestMatchers("/login").permitAll()
                         // Protect all other endpoints
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login") // Specify a custom login page
-                        .defaultSuccessUrl("/frontend/Html/index.html", true) // Redirect after successful login
+                        .loginPage("/frontend/Html/login.html") // Specify a custom login page
+                        .defaultSuccessUrl("/frontend/Html/index.html", true) // Ensure this URL is correct
                         .failureUrl("/login?error=true") // Redirect on login failure
                         .permitAll()
                 )

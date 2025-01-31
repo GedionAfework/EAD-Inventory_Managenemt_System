@@ -40,9 +40,11 @@ public class ItemController {
         }
     }
 
+
     @GetMapping
-    public ResponseEntity<List<Item>> getAllItems() {
-        return ResponseEntity.ok(itemService.getAllItems());
+    public ResponseEntity<List<Item>> getItems() {
+        List<Item> items = itemService.getAllItems(); // Make sure this method is implemented
+        return ResponseEntity.ok(items);
     }
 
     @GetMapping("/{id}")
