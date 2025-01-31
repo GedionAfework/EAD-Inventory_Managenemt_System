@@ -58,6 +58,7 @@ public class ItemService {
         }
     }
 
+
     public String uploadImage(MultipartFile image) throws IOException {
         String uploadDir = "D://Desktop//inventory-management//src//main//resources//uploads"; // Specify a valid upload directory
         File directory = new File(uploadDir);
