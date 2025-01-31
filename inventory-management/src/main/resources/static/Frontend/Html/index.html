@@ -1,113 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventory Management</title>
-  <link rel="stylesheet" href="../Css/styles.css" />
-</head>
-<body>
-<div class="navbar">
-  <nav class="">
-    <div class="nav-main">
-      <ul>
-        <li data-tooltip="Dashboard">
-          <a href="dashboard.html">Dashboard</a>
-        </li>
-        <li data-tooltip="Items"><a href="#">Items</a></li>
-        <li data-tooltip="Search"><a href="search.html">Search</a></li>
-        <li data-tooltip="Settings">
-          <a href="settings.html">Settings</a>
-        </li>
-      </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="../Css/styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <nav class="">
+        <div class="nav-main">
+          <ul>
+            <li data-tooltip="Items"><a href="#">Items</a></li>
+            <li data-tooltip="Search"><a href="search.html">Search</a></li>
+            <li data-tooltip="Settings">
+              <a href="settings.html">Settings</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </nav>
-</div>
 
-<div class="main">
-  <div class="top">
-    <div class="top-left">
-      <h2 class="main-top-title">All Items</h2>
-    </div>
-    <div class="top-right">
-      <button class="add-btn" id="show-add-item-btn">ADD ITEM</button>
-    </div>
-  </div>
-  <hr class="divider" />
-  <div class="mid-section">
-    <div class="stats">
-      <span>Items: <span id="total-items">0</span></span>
-      <span>Total Quantity: <span id="total-quantity">0 units</span></span>
-      <span>Total Value: <span id="total-value">ETB 0.00</span></span>
-    </div>
-  </div>
-  <div class="mid-section-right">
-    <div class="layout-menu">
-      <button class="hamburger-menu">☰</button>
-      <div class="layout-options">
-        <ul>
-          <li>
-            <input type="radio" name="layout" value="grid" checked /> Grid
-          </li>
-          <li><input type="radio" name="layout" value="list" /> List</li>
-        </ul>
+    <div class="main">
+      <div class="top">
+        <div class="top-left">
+          <h2 class="main-top-title">All Items</h2>
+        </div>
+        <div class="top-right">
+          <button class="add-btn" id="show-add-item-btn">ADD ITEM</button>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="mid-section">
+        <div class="stats">
+          <span>Items: <span id="total-items">0</span></span>
+          <span>Total Quantity: <span id="total-quantity">0 units</span></span>
+          <span>Total Value: <span id="total-value">ETB 0.00</span></span>
+        </div>
+      </div>
+      <div class="mid-section-right">
+        <div class="layout-menu">
+          <button class="hamburger-menu">☰</button>
+          <div class="layout-options">
+            <ul>
+              <li>
+                <input type="radio" name="layout" value="grid" checked /> Grid
+              </li>
+              <li><input type="radio" name="layout" value="list" /> List</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main-main">
+        <p class="empty-message" id="empty-message">
+          This place is feeling a bit lonely.<br />
+          Let's jazz it up with some inventory.
+        </p>
+
+        <div id="added-items-container" class="added-items-container"></div>
       </div>
     </div>
-  </div>
-  <div class="main-main">
-    <p class="empty-message" id="empty-message">
-      This place is feeling a bit lonely.<br />
-      Let's jazz it up with some inventory.
-    </p>
 
-    <div id="added-items-container" class="added-items-container"></div>
-  </div>
-</div>
+    <div id="add-item-modal" class="add-item-modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Add Item</h2>
+        <form id="add-item-form">
+          <label for="item-name">Name:</label>
+          <input
+            type="text"
+            id="item-name"
+            name="name"
+            placeholder="Enter item name"
+            required
+          />
 
-<div id="add-item-modal" class="add-item-modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>Add Item</h2>
-    <form id="add-item-form">
-      <label for="item-name">Name:</label>
-      <input type="text" id="item-name" name="name" placeholder="Enter item name" required />
+          <label for="item-description">Description:</label>
+          <input
+            type="text"
+            id="item-description"
+            name="item-description"
+            placeholder="Enter item description"
+            required
+          />
 
-      <label for="item-description">Description:</label>
-      <input type="text" id="item-description" name="item-description" placeholder="Enter item description" required />
+          <label for="item-number">Number of Items:</label>
+          <input
+            type="number"
+            id="item-number"
+            name="number-of-items"
+            placeholder="Enter number of items"
+            required
+          />
 
-      <label for="item-number">Number of Items:</label>
-      <input type="number" id="item-number" name="number-of-items" placeholder="Enter number of items" required />
+          <label for="item-price">Price (ETB):</label>
+          <input
+            type="number"
+            id="item-price"
+            name="price"
+            placeholder="Enter price per item"
+            required
+          />
 
-      <label for="item-price">Price (ETB):</label>
-      <input type="number" id="item-price" name="price" placeholder="Enter price per item" required />
+          <label for="item-image">Item Image:</label>
+          <input
+            type="file"
+            id="item-image"
+            name="item-image"
+            accept="image/*"
+          />
 
-      <label for="item-image">Item Image:</label>
-      <input type="file" id="item-image" name="item-image" accept="image/*" />
-
-      <div class="modal-buttons">
-        <button type="button" class="add-btn" id="add-item-btn">Add</button>
-        <button type="button" class="cancel-btn">Cancel</button>
+          <div class="modal-buttons">
+            <button type="button" class="add-btn" id="add-item-btn">Add</button>
+            <button type="button" class="cancel-btn">Cancel</button>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-</div>
-
-<div id="item-details-modal" class="item-details-modal">
-  <div class="modal-content">
-    <span class="close-btn" id="close-details-modal">&times;</span>
-    <h2>Item Details</h2>
-    <p id="item-details-name"></p>
-    <p id="item-details-description"></p>
-    <p id="item-details-number"></p>
-    <p id="item-details-price"></p>
-    <img id="item-details-image" src="" alt="Item Image" class="item-details-image" />
-    <div class="item-actions">
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
     </div>
-  </div>
-</div>
 
-<script src="../Js/scripts.js"></script>
-</body>
+    <div id="item-details-modal" class="item-details-modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-details-modal">&times;</span>
+        <h2>Item Details</h2>
+        <p id="item-details-name"></p>
+        <p id="item-details-description"></p>
+        <p id="item-details-number"></p>
+        <p id="item-details-price"></p>
+        <img
+          id="item-details-image"
+          src=""
+          alt="Item Image"
+          class="item-details-image"
+        />
+        <div class="item-actions">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Js/scripts.js"></script>
+  </body>
 </html>

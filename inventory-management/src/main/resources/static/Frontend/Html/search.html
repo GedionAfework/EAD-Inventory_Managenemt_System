@@ -1,61 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Settings</title>
-  <link rel="stylesheet" href="../Css/styles.css" />
-</head>
-<body>
-<nav class="navbar">
-  <div class="nav-main">
-    <ul>
-      <li class="nav-item" data-tooltip="Dashboard">
-        <a href="dashboard.html" class="nav-link">Dashboard</a>
-      </li>
-      <li class="nav-item" data-tooltip="Items">
-        <a href="index.html" class="nav-link">Items</a>
-      </li>
-      <li class="nav-item" data-tooltip="Search">
-        <a href="search.html" class="nav-link">Search</a>
-      </li>
-      <li class="nav-item" data-tooltip="Settings">
-        <a href="#" class="nav-link">Settings</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<h3 class="account-setting">Account Settings</h3>
-<form class="settings-form">
-  <label class="form-label">First Name:</label>
-  <input type="text" class="form-input" placeholder="Enter first name" />
-
-  <label class="form-label">Last Name:</label>
-  <input type="text" class="form-input" placeholder="Enter last name" />
-
-  <label class="form-label">Email Address:</label>
-  <input type="email" class="form-input" placeholder="Enter email" />
-
-  <label class="form-label">Phone Number:</label>
-  <input type="tel" class="form-input" placeholder="Enter phone number" />
-
-  <h4 class="change-password-title">Change Password</h4>
-  <label class="form-label">New Password:</label>
-  <input
-          type="password"
-          class="form-input"
-          placeholder="Enter new password"
-  />
-
-  <label class="form-label">Confirm Password:</label>
-  <input
-          type="password"
-          class="form-input"
-          placeholder="Confirm new password"
-  />
-
-  <button type="submit" class="submit-btn">Save Changes</button>
-</form>
-<script src="../Js/scripts.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <link rel="stylesheet" href="../Css/styles.css" />
+  </head>
+  <body class="body">
+    <nav class="navbar">
+      <div class="nav-main">
+        <ul class="nav-list">
+          <li class="nav-item" data-tooltip="Items">
+            <a href="index.html" class="nav-link">Items</a>
+          </li>
+          <li class="nav-item" data-tooltip="Search">
+            <a href="#" class="nav-link">Search</a>
+          </li>
+          <li class="nav-item" data-tooltip="Settings">
+            <a href="settings.html" class="nav-link">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="search-container">
+      <h3 class="search-title">Search for an Item</h3>
+      <input
+        type="search"
+        placeholder="Enter item name..."
+        id="search-input"
+        class="search-input"
+      />
+      <button id="search-btn" class="search-btn">Search</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+    <script src="../Js/scripts.js"></script>
+  </body>
 </html>
