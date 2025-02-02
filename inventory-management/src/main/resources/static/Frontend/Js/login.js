@@ -25,7 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         .then(data => {
             console.log('Login successful:', data);
             // Redirect to the dashboard on successful login
-            window.location.href = 'dashboard.html'; // Adjust the path as necessary
+            window.location.href = 'index.html'; // Adjust the path as necessary
         })
         .catch(error => {
             console.error('Login failed:', error);

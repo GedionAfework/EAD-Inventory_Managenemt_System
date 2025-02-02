@@ -22,7 +22,7 @@ document.getElementById('signupForm').addEventListener('submit', async function(
             const data = await response.json();
             alert('Registration successful!');
             // Optionally redirect to login or another page
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         } else {
             alert('Registration failed. Please try again.');
         }

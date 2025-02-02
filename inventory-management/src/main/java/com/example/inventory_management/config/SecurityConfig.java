@@ -13,31 +13,26 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity; consider enabling in production
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for API calls
                 .authorizeHttpRequests(auth -> auth
-                        // Allow access to static files under /frontend/** without authentication
-                        .requestMatchers("/frontend/**").permitAll()
-                        // Allow public access to auth endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
-                        // Allow public access to the /api/items endpoint for testing
-                        .requestMatchers("/api/items/**").permitAll() // Ensure this matches specific methods
-                        // Allow access to the login page
-                        .requestMatchers("/login").permitAll()
-                        // Protect all other endpoints
-                        .anyRequest().authenticated()
+                        .requestMatchers("/frontend/**").permitAll() // ✅ Allow static files
+                        .requestMatchers("/api/auth/**").permitAll() // ✅ Allow authentication APIs
+                        .requestMatchers("/api/items/**").permitAll() // ✅ Allow public API access
+                        .requestMatchers("/login", "/logout").permitAll() // ✅ Ensure login/logout are accessible
+                        .anyRequest().authenticated() // ✅ Protect all other routes
                 )
                 .formLogin(form -> form
-                        .loginPage("/frontend/Html/login.html") // Specify a custom login page
-                        .defaultSuccessUrl("/frontend/Html/index.html", true) // Ensure this URL is correct
-                        .failureUrl("/login?error=true") // Redirect on login failure
+                        .loginPage("/login") // ✅ Use login controller
+                        .defaultSuccessUrl("/frontend/Html/index.html", false) // ✅ Prevent infinite loop
+                        .failureUrl("/login?error=true")
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout") // URL for logging out
-                        .logoutSuccessUrl("/login?logout") // Redirect after logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 )
-                .httpBasic(httpBasic -> httpBasic.disable()); // Explicitly disable basic authentication if not used
+                .httpBasic(httpBasic -> httpBasic.disable()); // ✅ Disable basic authentication
 
         return http.build();
     }
