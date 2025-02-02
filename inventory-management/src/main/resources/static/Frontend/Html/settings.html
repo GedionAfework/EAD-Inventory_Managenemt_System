@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Settings</title>
-  <link rel="stylesheet" href="../Css/styles.css" />
-</head>
-<body>
-<nav class="navbar">
-  <div class="nav-main">
-    <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="../Css/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-main">
+        <ul>
+          <li data-tooltip="Items"><a href="index.html">Items</a></li>
+          <li data-tooltip="Search"><a href="search.html">Search</a></li>
+          <li data-tooltip="Settings"><a href="#">Settings</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h3>Account Settings</h3>
+    <form id="profileForm">
+      <label>Username:</label>
+      <input type="text" id="username" placeholder="Enter your user name" />
 
-      <li data-tooltip="Items"><a href="index.html">Items</a></li>
-      <li data-tooltip="Search"><a href="search.html">Search</a></li>
-      <li data-tooltip="Settings"><a href="#">Settings</a></li>
-    </ul>
-  </div>
-</nav>
-<h3>Account Settings</h3>
-<form id="profileForm">
-  <label>Username:</label>
-  <input type="text" id="username" placeholder="Enter your user name" />
+      <label>Email Address:</label>
+      <input type="email" id="email" placeholder="Enter email" />
 
-  <label>Email Address:</label>
-  <input type="email" id="email" placeholder="Enter email" />
+      <h4>Change Password</h4>
+      <label>New Password:</label>
+      <input
+        type="password"
+        id="newPassword"
+        placeholder="Enter new password"
+      />
 
-  <h4>Change Password</h4>
-  <label>New Password:</label>
-  <input type="password" id="newPassword" placeholder="Enter new password" />
+      <label>Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="Confirm new password"
+      />
 
-  <label>Confirm Password:</label>
-  <input type="password" id="confirmPassword" placeholder="Confirm new password" />
+      <button type="submit">Save Changes</button>
+    </form>
 
-  <button type="submit">Save Changes</button>
-</form>
-
-<script src="../Js/settings.js"></script>
-</body>
+    <script src="../Js/settings.js"></script>
+  </body>
 </html>

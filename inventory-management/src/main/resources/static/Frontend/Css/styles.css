@@ -7,7 +7,6 @@ body {
     display: flex;
 }
 
-/* Navbar styles */
 .navbar {
     position: fixed;
     left: 0;
@@ -526,7 +525,7 @@ input {
 
 .search-btn {
     position: absolute;
-    left: 61%;
+    left:61%;
     padding: 10px 20px;
     background-color: #dd2a3b;
     color: white;
@@ -535,7 +534,7 @@ input {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    display: inline-block;
+    display: inline-block; 
 }
 
 .search-btn:hover {
@@ -670,61 +669,4 @@ input {
 .signup-login-link-a:hover {
     text-decoration: underline;
 }
-/* Centering the form */
-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-/* Form Headings */
-h3, h4 {
-    color: red;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-/* Labels */
-label {
-    display: block;
-    text-align: left;
-    color: black;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-/* Input Fields */
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-}
-
-/* Button Styling */
-button {
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: darkred;
-}
